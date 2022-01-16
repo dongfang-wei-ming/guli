@@ -1,0 +1,40 @@
+server:
+  port: 8160
+spring:
+  application:
+    name: service-ucenter
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.99.147.13:3306/guli?serverTimezone=GMT%2B8
+    password: a1818547
+    username: root
+  redis:
+    host: 47.99.147.13
+    port: 6379
+    database: 0
+    timeout: 2000
+    lettuce:
+      pool:
+        max-active: 20
+        max-idle: 5
+        min-idle: 0
+        max-wait: 1
+  jackson:
+    time-zone: GMT+8
+    date-format: yy-MM-dd HH:mm:ss
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+mybatis-plus:
+  mapper-locations: classpath:com/example/ucenter/mapper/xml/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+wx:
+  open:
+    # 微信开放平台 appid
+    appid: wxed9954c01bb89b47
+    # 微信开放平台 appsecret
+    appsecret: a7482517235173ddb4083788de60b90e
+    # 微信开放平台 重定向url（guli.shop需要在微信开放平台配置）
+    redirecturl: http://localhost:8160/api/ucenter/wx/callback
